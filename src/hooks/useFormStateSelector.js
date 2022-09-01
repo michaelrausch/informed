@@ -3,7 +3,7 @@ import { useFormController } from './useFormController';
 import { createDeepProxy, isDeepChanged } from '../proxy';
 import { useForceUpdate } from './useForceUpdate';
 
-if (typeof window.structuredClone !== 'function') {
+if (typeof window !== "undefined" && typeof window.structuredClone !== 'function') {
   // fallback for browsers that don't support `structuredClone` yet
   // this comes with some limitations in what can be cloned, but this should be fine for most use cases
   // `structuredClone` can also be polyfilled using https://www.npmjs.com/package/@ungap/structured-clone
